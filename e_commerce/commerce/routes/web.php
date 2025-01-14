@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticltraiteController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,8 @@ Route::get('/validate_page',[LocationController::class,'affichagePage'])->middle
 Route::post('/confirm_payment',[LocationController::class,'confirmation'])->middleware('auth')->name('confirm.momo');
 Route::get('/payement',[LocationController::class,'paymentPage'])->middleware('auth')->name('payement');
 Route::post('/payemnt',[LocationController::class,'validation'])->middleware('auth')->name('feda');
-
+Route::get('/post_articles',[ArticltraiteController::class,'index'])->middleware('auth')->name('auth')->name('articles');
+// Route::post('/articles_sauvegarde',[ArticltraiteController::class,'store'])->middleware('auth')->name('enregistrement');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
