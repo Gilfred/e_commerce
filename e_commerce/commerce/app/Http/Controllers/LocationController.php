@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use FedaPay\FedaPay;
-use FedaPay\Transaction;
+// use FedaPay\Transaction;
 
 class LocationController extends Controller
 {
@@ -33,9 +33,9 @@ class LocationController extends Controller
          }//elseif($request->input('action')==='cancel'){
         //     return redirect()->route('welcome');
         // }
-       
+
         // return redirect()->route('welcome');
-        
+
     }
 
     public function paymentPage(){
@@ -45,21 +45,23 @@ class LocationController extends Controller
         FedaPay::setApiKey(env('FEDAPAY_SECRET_KEY'));
         FedaPay::setEnvironment(env('FEDAPAY_ENV','sandbox'));
         $transaction = \FedaPay\Transaction::create([
-            'description' => 'Paiement de test',
-            'amount' => 5000,  // Montant en francs CFA
-            'currency' => 'XOF',
+            'description' => $request->input('description'),
+            'amount' => $request->input('amount'),  // Montant en francs CFA
+            'currency' => $request->input('currency'),
             'customer' => [
-                'firstname' => 'Fredo',
-                'lastname' => 'Degbevi',
-                'email' => 'fredodegbevi@gmail.com',
+                'firstname' => $request->input('firstname'),
+                'lastname' => $request->input('lastname'),
+                'email' => $request->input('email'),
                 'phone_number' => [
-                    'number' => '22954020312',
-                    'country' => 'BJ'
+                    'number' => $request->input('number'),
+                    'country' => $request->input('country'),
                 ]
             ]
-        ]);
 
-        return redirect($transaction->generateToken()->url);
+        ]);
+        // dd($transaction);
+
+       return redirect($transaction->generateToken()->url);
 
    }
 
