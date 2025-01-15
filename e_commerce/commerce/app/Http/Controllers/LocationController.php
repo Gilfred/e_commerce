@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use FedaPay\FedaPay;
+// use FedaPay\FedaPay;
 // use FedaPay\Transaction;
 
 class LocationController extends Controller
@@ -42,8 +42,10 @@ class LocationController extends Controller
         return view('pagefeda');
    }
    public function validation(Request $request){
-        FedaPay::setApiKey(env('FEDAPAY_SECRET_KEY'));
-        FedaPay::setEnvironment(env('FEDAPAY_ENV','sandbox'));
+        // FedaPay::setApiKey(env('FEDAPAY_SECRET_KEY'));
+        \FedaPay\Fedapay::setApiKey('FEDAPAY_SECRET_KEY');
+        // FedaPay::setEnvironment(env('FEDAPAY_ENV','sandbox'));
+        \FedaPay\Fedapay::setEnvironment('sandbox');
         $transaction = \FedaPay\Transaction::create([
             'description' => $request->input('description'),
             'amount' => $request->input('amount'),  // Montant en francs CFA

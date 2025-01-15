@@ -7,11 +7,11 @@
     <title>Vos articles a poster</title>
 </head>
 <body>
-    <form action="" method=""  enctype="multipart/form-data">
+    <form action="{{route('enregistrement')}}" method="POST"  enctype="multipart/form-data">
         @csrf
         <div>
             <label for="">Image:</label>
-            <input type="file" name="image[]" accept="image/*" multiple>
+            <input type="file" name="image" accept="image/*" >
         </div> <br>
         <div>
             <label for="">Nom de l'article:</label>

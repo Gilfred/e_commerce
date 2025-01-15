@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articles;
 use Illuminate\Http\Request;
 
 class ArticltraiteController extends Controller
@@ -28,13 +29,19 @@ class ArticltraiteController extends Controller
     public function store(Request $request)
     {
         $request->validate(rules:[
-            'nom_articles'=>['required',],
+            'nom_articles'=>['required'],
             'prix'=>['required','numeric'],
             'stock_restant'=>['required','numeric'],
             'image'=>['required','image'],
 
         ]);
-        
+        $imageArticle=$request->file('image')->store('articles_photos','public');
+        $article=new Articles();
+        $article->nom_articles=$request->nom_articles;
+        $article->prix= $request->prix;
+        $article->stock_restant=$request->stock_restant;
+        $article->image=$imageArticle;
+        $article->save();
     }
 
     /**
