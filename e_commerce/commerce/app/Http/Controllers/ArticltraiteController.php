@@ -37,13 +37,21 @@ class ArticltraiteController extends Controller
         ]);
         $imageArticle=$request->file('image')->store('articles_photos','public');
         $article=new Articles();
+        $article->users_id = auth()->id();
         $article->nom_articles=$request->nom_articles;
         $article->prix= $request->prix;
         $article->stock_restant=$request->stock_restant;
         $article->image=$imageArticle;
         $article->save();
+
+        return redirect()->route('the.shop');
     }
 
+
+    public function affichage(){
+        
+        return view('article.la_boutique');
+    }
     /**
      * Display the specified resource.
      */

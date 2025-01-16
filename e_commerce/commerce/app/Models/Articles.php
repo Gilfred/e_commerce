@@ -14,5 +14,10 @@ class Articles extends Model
         'prix',
         'stock_restant',
         'image',
+        'users_id',
     ];
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
 }
