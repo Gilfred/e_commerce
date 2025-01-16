@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boutiques', function (Blueprint $table) {
-            $table->id();
+        Schema::table('articles', function (Blueprint $table) {
+            //
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users');
-            $table->timestamps();
         });
     }
 
@@ -24,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('boutiques');
+        Schema::table('articles', function (Blueprint $table) {
+            //
+        });
     }
 };

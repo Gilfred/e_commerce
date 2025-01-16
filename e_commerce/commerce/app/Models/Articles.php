@@ -13,6 +13,6 @@ class Articles extends Model
         'nom_articles',
         'prix',
         'stock_restant',
-        'image'
+        'image',
     ];
 }
