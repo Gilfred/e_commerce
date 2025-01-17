@@ -49,8 +49,8 @@ class ArticltraiteController extends Controller
 
 
     public function affichage(){
-        
-        return view('article.la_boutique');
+        $articles=auth()->user()->articles;
+        return view('article.la_boutique', compact('articles'));
     }
     /**
      * Display the specified resource.
