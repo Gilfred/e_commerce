@@ -25,7 +25,7 @@ class User extends Authenticatable
         'image',
     ];
     public function articles(){
-        return $this->hasMany(Articles::class);
+        return $this->hasMany(Articles::class,'users_id');
     }
     /**
      * The attributes that should be hidden for serialization.
