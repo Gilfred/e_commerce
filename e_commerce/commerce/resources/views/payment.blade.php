@@ -8,6 +8,13 @@
 </head>
 <body>
         <a href="{{route('payement')}}" value="action" name="ok">Accepter le payement</a> <br>
-        <a href="" type="submit" name="cancel">Refuser le payement</a>
+
+        <form action="{{route('refus')}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button>
+                refuser
+            </button>
+        </form>
 </body>
 </html>

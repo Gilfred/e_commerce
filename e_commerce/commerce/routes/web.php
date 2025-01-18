@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticltraiteController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ Route::get('/', function () {
 Route::get('/inscription',[LocationController::class,'index'])->name('enregistrement');
 Route::get('/affichage_info',[LocationController::class,'create'])->middleware('auth')->name('image.profile');
 Route::get('/validate_page',[LocationController::class,'affichagePage'])->middleware('auth')->name('validate.page');
+Route::delete('/location_refuser{id}',[RegisteredUserController::class,'destroy'])->middleware('auth')->name('refus');
 Route::post('/confirm_payment',[LocationController::class,'confirmation'])->middleware('auth')->name('confirm.momo');
 Route::get('/payement',[LocationController::class,'paymentPage'])->middleware('auth')->name('payement');
 Route::post('/payemnt',[LocationController::class,'validation'])->middleware('auth')->name('feda');

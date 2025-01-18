@@ -53,4 +53,14 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function destroy(){
+        $user=Auth()->user();
+        if ($user) {
+            $user->delete(); // Supprimer l'utilisateur
+            Auth::logout();
+            // return redirect('/')->with('success', 'Votre compte a été supprimé avec succès.');
+            return redirect()->route('welcome');
+        };
+    }
 }
