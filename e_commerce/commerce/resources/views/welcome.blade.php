@@ -6,11 +6,11 @@
 
         <title>Laravel</title>
 
-       
+
     </head>
     <body>
         <div>
-            <a href="{{route('enregistrement')}}">locationn de boutique</a>
+            <a href="{{route('enregistrement')}}">location de boutique</a>
         </div>
          <div>
             <a href="">achat de produits</a>

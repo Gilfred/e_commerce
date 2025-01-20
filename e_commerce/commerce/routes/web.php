@@ -22,12 +22,12 @@ Route::get('/', function () {
 Route::get('/inscription',[LocationController::class,'index'])->name('enregistrement');
 Route::get('/affichage_info',[LocationController::class,'create'])->middleware('auth')->name('image.profile');
 Route::get('/validate_page',[LocationController::class,'affichagePage'])->middleware('auth')->name('validate.page');
-Route::delete('/location_refuser{id}',[RegisteredUserController::class,'destroy'])->middleware('auth')->name('refus');
+//Route::delete('/location_refuser{id}',[RegisteredUserController::class,'destroy'])->middleware('auth')->name('refus');
 Route::post('/confirm_payment',[LocationController::class,'confirmation'])->middleware('auth')->name('confirm.momo');
 Route::get('/payement',[LocationController::class,'paymentPage'])->middleware('auth')->name('payement');
 Route::post('/payemnt',[LocationController::class,'validation'])->middleware('auth')->name('feda');
 Route::get('/post_articles',[ArticltraiteController::class,'index'])->middleware('auth')->name('auth')->name('articles');
-Route::post('/article_register',[ArticltraiteController::class,'store'])->middleware('auth')->name('enregistrement');
+Route::post('/post_articles',[ArticltraiteController::class,'store'])->middleware('auth')->name('enregistrement');
 Route::get('/articles_publier',[ArticltraiteController::class,'affichage'])->middleware('auth')->name('the.shop');
 
 Route::get('/dashboard', function () {
