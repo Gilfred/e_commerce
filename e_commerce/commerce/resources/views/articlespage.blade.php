@@ -7,7 +7,7 @@
     <title>Vos articles a poster</title>
 </head>
 <body>
-    <form action="{{route('enregistrement')}}" method="POST"  enctype="multipart/form-data">
+    <form action="{{route('enregistrement.articles')}}" method="POST"  enctype="multipart/form-data">
         @csrf
         <div>
             <label for="">Image:</label>

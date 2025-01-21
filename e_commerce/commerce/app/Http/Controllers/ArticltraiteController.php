@@ -82,5 +82,8 @@ class ArticltraiteController extends Controller
     public function destroy(string $id)
     {
         //
+        $article=Articles::findOrfail($id);
+        $article->delete();
+        return redirect()->route('the.shop',$id);
     }
 }

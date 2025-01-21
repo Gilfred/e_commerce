@@ -30,7 +30,11 @@
                         modifier
                     </td>
                     <td>
-                        supprimer
+                        <form action="{{route('suppression.articles',$article->id)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" >supprimer</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
