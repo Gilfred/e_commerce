@@ -66,6 +66,9 @@ class ArticltraiteController extends Controller
     public function edit(string $id)
     {
         //
+        $articles=Articles::findOrFail($id);
+        // $articles=Articles::all();
+        return view('article.update', compact('$articles'));
     }
 
     /**

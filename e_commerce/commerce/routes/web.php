@@ -30,7 +30,7 @@ Route::get('/post_articles',[ArticltraiteController::class,'index'])->middleware
 Route::post('/post_articles',[ArticltraiteController::class,'store'])->middleware('auth')->name('enregistrement.articles');
 Route::get('/articles_publier',[ArticltraiteController::class,'affichage'])->middleware('auth')->name('the.shop');
 Route::delete('/suppression{id}',[ArticltraiteController::class,'destroy'])->middleware('auth')->name('suppression.articles');
-
+Route::get('/edit/{id}/edit',[ArticltraiteController::class,'edit'])->middleware('auth')->name('articles.edit');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
