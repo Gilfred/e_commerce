@@ -84,6 +84,6 @@ class ArticltraiteController extends Controller
         //
         $article=Articles::findOrfail($id);
         $article->delete();
-        return redirect()->route('the.shop',$id);
+        return redirect()->route('the.shop');
     }
 }
