@@ -27,7 +27,7 @@ Route::post('/confirm_payment',[LocationController::class,'confirmation'])->midd
 Route::get('/payement',[LocationController::class,'paymentPage'])->middleware('auth')->name('payement');
 Route::post('/payemnt',[LocationController::class,'validation'])->middleware('auth')->name('feda');
 Route::get('/post_articles',[ArticltraiteController::class,'index'])->middleware('auth')->name('auth')->name('articles');
-Route::post('/post_articles',[ArticltraiteController::class,'store'])->middleware('auth')->name('enregistrement');
+Route::post('/post_articles',[ArticltraiteController::class,'store'])->middleware('auth')->name('enregistrement.articles');
 Route::get('/articles_publier',[ArticltraiteController::class,'affichage'])->middleware('auth')->name('the.shop');
 
 Route::get('/dashboard', function () {

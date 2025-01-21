@@ -26,15 +26,15 @@ class ArticltraiteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate(rules:[
-            'nom_articles'=>['required'],
-            'prix'=>['required','numeric'],
-            'stock_restant'=>['required','numeric'],
-            'image'=>['required','image'],
+     public function store(Request $request)
+     {
+         $request->validate(rules:[
+             'nom_articles'=>['required'],
+             'prix'=>['required','numeric'],
+             'stock_restant'=>['required','numeric'],
+             'image'=>['required','image'],
 
-        ]);
+         ]);
         $imageArticle=$request->file('image')->store('articles_photos','public');
         $article=new Articles();
         $article->users_id = auth()->id();
