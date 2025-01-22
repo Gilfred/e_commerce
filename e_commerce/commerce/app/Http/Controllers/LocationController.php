@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use FedaPay\FedaPay;
-use FedaPay\Transaction;
+// use FedaPay\FedaPay;
+// use FedaPay\Transaction;
 
 class LocationController extends Controller
 {
@@ -42,28 +42,34 @@ class LocationController extends Controller
         return view('pagefeda');
    }
    public function validation(Request $request){
-        FedaPay::setApiKey(env('FEDAPAY_SECRET_KEY'));
-        // \FedaPay\Fedapay::setApiKey('FEDAPAY_SECRET_KEY');
-        FedaPay::setEnvironment(env('FEDAPAY_ENV','sandbox'));
-        // \FedaPay\Fedapay::setEnvironment('sandbox');
-        $transaction = \FedaPay\Transaction::create([
-            'description' => $request->input('description'),
-            'amount' => $request->input('amount'),  // Montant en francs CFA
-            'currency' => $request->input('currency'),
-            'customer' => [
-                'firstname' => $request->input('firstname'),
-                'lastname' => $request->input('lastname'),
-                'email' => $request->input('email'),
-                'phone_number' => [
-                    'number' => $request->input('number'),
-                    'country' => $request->input('country'),
-                ]
-            ]
-
-        ]);
+    $request->validate([
+        'firstname'=>['request','string'],
+        'lastname'=>['required','string'],
+        'amount'=>['required','numeric'],
+        'number'=>['required','numeric'],
+        'email'=>['required','email'],
+        'country'=>['required','sting','max:2'],
+        // 'currency'=>['required','']
+    ]);
+    \FedaPay\Fedapay::setApiKey('sk_sandbox_8PimPxHTy3LbovRwWGOr5uzG');
+    \FedaPay\FedaPay::setEnvironment('sandbox');
+    \FedaPay\Payout::create([
+      "amount" => 2000,
+      "currency" => ["iso" => "XOF"],
+      "mode" => "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+      "customer" => [ // Non obligatoire.
+          "firstname" => $request->firstname, //"John",
+          "lastname" => $request->lastname, //"Doe",
+          "email" => $request->email, //"john.doe@example.com",
+          "phone_number" => [
+              "number" =>$request->number,  //"+22997808080",
+              "country" =>$request->country,// "bj",
+          ],
+      ],
+    ]);
         // dd($transaction);
 
-       return redirect($transaction->generateToken()->url);
+       return redirect()->route('articles');
 
    }
 

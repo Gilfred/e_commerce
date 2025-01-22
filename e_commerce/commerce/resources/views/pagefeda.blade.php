@@ -31,7 +31,7 @@
             <label for="amount">
                 Montant:
             </label>
-            <input type="number" value="1000" name="amount">
+            <input type="number" value="2000" name="amount">
         </div> <br>
         <div>
             <label for="number">
@@ -51,13 +51,13 @@
             </label>
             <input type="text" value="BJ" name="country">
         </div> <br>
-        <div>
+        {{-- <div>
             <label for="description">
                 description:
             </label>
             <input type="text" name="description">
-        </div>  <br>
-
+        </div>   --}}
+        <br>
         <button type="submit">Payer</button>
     </form>
 </body>
