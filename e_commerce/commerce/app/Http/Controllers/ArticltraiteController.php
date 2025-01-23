@@ -66,19 +66,44 @@ class ArticltraiteController extends Controller
     public function edit(string $id)
     {
         //
+
         $articles=Articles::findOrFail($id);
         // $articles=Articles::all();
-        return view('article.update', compact('$articles'));
+        return view('article.update', compact('articles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
-    }
+        $request->validate(rules:[
+            'nom_articles'=>['required'],
+            'prix'=>['required','numeric'],
+            'stock_restant'=>['required','numeric'],
+            'image'=>['required','image'],
 
+        ]);
+
+        //$imageArticle=$request->file('image')->store('articles_photos','public');
+        $article=Articles::findOrFail($id);
+        if ($request->hasFile('image')) {
+            // Supprimer l'ancienne image si nécessaire
+            if ($article->image) {
+                Storage::disk('public')->delete($article->image);
+            }
+            $path = $request->file('image')->store('articles_photos', 'public');
+            $article->image = $path;
+        }
+        $article->nom_articles=$request->nom_articles;
+        $article->prix= $request->prix;
+        $article->stock_restant=$request->stock_restant;
+        // $article->image=$imageArticle;
+        $article->update();
+        return redirect()->route('the.shop');
+
+    }
     /**
      * Remove the specified resource from storage.
      */

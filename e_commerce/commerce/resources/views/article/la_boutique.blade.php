@@ -27,7 +27,7 @@
                         {{$article->prix}}
                     </td>
                     <td>
-                        modifier
+                        <a href="{{route('articles.edit',$article->id)}}">Modifier</a>
                     </td>
                     <td>
                         <form action="{{route('suppression.articles',$article->id)}}" method="POST">

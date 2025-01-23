@@ -31,6 +31,8 @@ Route::post('/post_articles',[ArticltraiteController::class,'store'])->middlewar
 Route::get('/articles_publier',[ArticltraiteController::class,'affichage'])->middleware('auth')->name('the.shop');
 Route::delete('/suppression{id}',[ArticltraiteController::class,'destroy'])->middleware('auth')->name('suppression.articles');
 Route::get('/edit/{id}/edit',[ArticltraiteController::class,'edit'])->middleware('auth')->name('articles.edit');
+Route::put('/mjs/{id}',[ArticltraiteController::class,'update'])->middleware('auth')->name('modifications');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
