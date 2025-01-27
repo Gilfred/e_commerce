@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+//
+use App\Services\FedapayService;
 use Illuminate\Http\Request;
 // use FedaPay\FedaPay;
 // use FedaPay\Transaction;
@@ -67,7 +68,6 @@ class LocationController extends Controller
           ],
       ],
     ]);
-        // dd($transaction);
 
        return redirect()->route('articles');
 

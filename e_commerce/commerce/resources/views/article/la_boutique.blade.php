@@ -12,6 +12,7 @@
         <thead>
             <tr>
                 <th>nom de l'article</th>
+                <th>image de l'article</th>
                 <th>prix</th>
                 <th>modification</th>
                 <th>suppression</th>
@@ -22,6 +23,9 @@
                 <tr>
                     <td>
                         {{$article->nom_articles}}
+                    </td>
+                    <td>
+                        <img src="{{asset('storage/' .$articles->first()->image)}}" alt="photo des articles">
                     </td>
                     <td>
                         {{$article->prix}}
