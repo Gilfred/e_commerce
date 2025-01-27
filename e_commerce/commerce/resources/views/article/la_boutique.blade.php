@@ -51,6 +51,11 @@
         <x-responsive-nav-link :href="route('profile.edit')">
             {{ __('Profile') }}
         </x-responsive-nav-link>
+        <br>
+
+        <x-responsive-nav-link :href="route('enregistrement.articles')">
+            {{ __("Poster d'autres articles") }}
+        </x-responsive-nav-link>
 
         <!-- Authentication -->
         <form method="POST" action="{{ route('logout') }}">

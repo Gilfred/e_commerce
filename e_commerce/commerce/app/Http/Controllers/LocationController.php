@@ -44,12 +44,12 @@ class LocationController extends Controller
    }
    public function validation(Request $request){
     $request->validate([
-        'firstname'=>['request','string'],
-        'lastname'=>['required','string'],
-        'amount'=>['required','numeric'],
-        'number'=>['required','numeric'],
-        'email'=>['required','email'],
-        'country'=>['required','sting','max:2'],
+        // 'firstname'=>['request','string'],
+        // 'lastname'=>['required','string'],
+        // 'amount'=>['required','numeric'],
+        // 'number'=>['required','numeric'],
+        // 'email'=>['required','email'],
+        // 'country'=>['required','sting','max:2'],
         // 'currency'=>['required','']
     ]);
     \FedaPay\Fedapay::setApiKey('sk_sandbox_8PimPxHTy3LbovRwWGOr5uzG');

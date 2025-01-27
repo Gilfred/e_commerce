@@ -28,7 +28,7 @@
 
         <button type="submit">voir les articles à publier</button>
     </form>
-
+    <a href="{{route('the.shop')}}">Consulter ma boutique</a>
     <br>
     <br>
     <div class="mt-3 space-y-1">
