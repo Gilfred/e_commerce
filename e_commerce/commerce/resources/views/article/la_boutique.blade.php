@@ -48,13 +48,19 @@
 
     <br>
     <div class="mt-3 space-y-1">
-        <x-responsive-nav-link :href="route('profile.edit')">
-            {{ __('Profile') }}
-        </x-responsive-nav-link>
-        <br>
 
         <x-responsive-nav-link :href="route('enregistrement.articles')">
             {{ __("Poster d'autres articles") }}
+        </x-responsive-nav-link>
+        <br>
+
+        {{-- <x-responsive-nav-link :href="route('')">
+            {{ __('Publier mes articles aux clients') }}
+        </x-responsive-nav-link> --}}
+        <br>
+
+        <x-responsive-nav-link :href="route('profile.edit')">
+            {{ __('Profile') }}
         </x-responsive-nav-link>
 
         <!-- Authentication -->
