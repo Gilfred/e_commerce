@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" href="{{asset('resources/css/app.css')}}">
         <title>Laravel</title>
 
 
@@ -21,6 +21,7 @@
                     <tr>Nom de l'article</tr>
                     <tr>Image_article</tr>
                     <tr>Prix</tr>
+                    <tr>Stock Restant</tr>
 
                 </th>
             </thead>
@@ -31,10 +32,13 @@
                             {{$produit->nom_articles}}
                         </td>
                         <td>
-                            <img src="{{asset('storage/' .$produit->image)}}" style="width: 100%" height="auto" alt="Articles">
+                            <img src="{{asset('storage/' .$produit->image)}}" alt="Articles">
                         </td>
                         <td>
                             {{$produit->prix}}
+                        </td>
+                        <td>
+                            {{$produit->stock_restant}}
                         </td>
 
                     </tr>

@@ -14,6 +14,7 @@
                 <th>nom de l'article</th>
                 <th>image de l'article</th>
                 <th>prix</th>
+                <th>stock Restant</th>
                 <th>modification</th>
                 <th>suppression</th>
             </tr>
@@ -29,6 +30,9 @@
                     </td>
                     <td>
                         {{$article->prix}}
+                    </td>
+                    <td>
+                        {{$article->stock_restant}}
                     </td>
                     <td>
                         <a href="{{route('articles.edit',$article->id)}}">Modifier</a>
@@ -48,6 +52,10 @@
 
     <br>
     <div class="mt-3 space-y-1">
+
+        <a href="{{route('welcome')}}">
+            Publier
+        </a> <br>
 
         <x-responsive-nav-link :href="route('enregistrement.articles')">
             {{ __("Poster d'autres articles") }}
