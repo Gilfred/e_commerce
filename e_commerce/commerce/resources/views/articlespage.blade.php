@@ -32,9 +32,12 @@
     <br>
     <br>
     <div class="mt-3 space-y-1">
-        <x-responsive-nav-link :href="route('profile.edit')">
+        <a
+            href="{{ route('profile.edit') }}"
+            class="btn btn-secondary">
             {{ __('Profile') }}
-        </x-responsive-nav-link>
+        </a>
+
 
         <!-- Authentication -->
         <form method="POST" action="{{ route('logout') }}">

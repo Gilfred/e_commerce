@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AffichagearticleController;
 use App\Http\Controllers\ArticltraiteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\LocationController;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');})->name('welcome');
+Route::get('/',[AffichagearticleController::class,'index'])->name('welcome');
 Route::get('/inscription',[LocationController::class,'index'])->name('enregistrement');
 Route::get('/affichage_info',[LocationController::class,'create'])->middleware('auth')->name('image.profile');
 Route::get('/validate_page',[LocationController::class,'affichagePage'])->middleware('auth')->name('validate.page');
