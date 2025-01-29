@@ -12,7 +12,7 @@
             <a href="{{route('enregistrement')}}">location de boutique</a>
         </div>
          <div>
-            <a href="">achat de produits</a>
+            <a href="{{route('welcome')}}">achat de produits</a>
         </div>
         <table style="border: 1px">
             <thead>
@@ -21,7 +21,7 @@
                     <tr>Image_article</tr>
                     <tr>Prix</tr>
                     <tr>Stock Restant</tr>
-
+                    <tr>Acheter</tr>
                 </th>
             </thead>
             <tbody>
@@ -39,7 +39,15 @@
                         <td>
                             {{$produit->stock_restant}}
                         </td>
-
+                        <td>
+                           <form action="{{route('maj.articles', $produit->id)}}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" name="action" value="decrementation">-</button>
+                            <span>{{$produit->after_buy}}</span>
+                            <button type="submit" name="action" value="incrementation">+</button>
+                           </form>
+                        </td>
                     </tr>
                 @endforeach
 

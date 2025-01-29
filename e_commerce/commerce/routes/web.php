@@ -35,6 +35,9 @@ Route::delete('/suppression{id}',[ArticltraiteController::class,'destroy'])->mid
 Route::get('/edit/{id}/edit',[ArticltraiteController::class,'edit'])->middleware('auth')->name('articles.edit');
 Route::put('/mjs/{id}',[ArticltraiteController::class,'update'])->middleware('auth')->name('modifications');
 
+// mise a jour des articles après achat par un client
+Route::put('/maj/{id}/stock_articles',[ArticltraiteController::class,'quantity'])->name('maj.articles');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

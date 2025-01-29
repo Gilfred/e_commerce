@@ -75,36 +75,52 @@ class ArticltraiteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
-    {
-        //
-        $request->validate(rules:[
-            'nom_articles'=>['required'],
-            'prix'=>['required','numeric'],
-            'stock_restant'=>['required','numeric'],
-            'image'=>['required','image'],
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    //     $request->validate(rules:[
+    //         'nom_articles'=>['required'],
+    //         'prix'=>['required','numeric'],
+    //         'stock_restant'=>['required','numeric'],
+    //         'image'=>['required','image'],
 
-        ]);
+    //     ]);
 
-        //$imageArticle=$request->file('image')->store('articles_photos','public');
-        $article=Articles::findOrFail($id);
-        if ($request->hasFile('image')) {
-            // Supprimer l'ancienne image si nécessaire
-            if ($article->image) {
-                Storage::disk('public')->delete($article->image);
-            }
-            $path = $request->file('image')->store('articles_photos', 'public');
-            $article->image = $path;
+    //     //$imageArticle=$request->file('image')->store('articles_photos','public');
+    //     $article=Articles::findOrFail($id);
+    //     if ($request->hasFile('image')) {
+    //         // Supprimer l'ancienne image si nécessaire
+    //         if ($article->image) {
+    //             Storage::disk('public')->delete($article->image);
+    //         }
+    //         $path = $request->file('image')->store('articles_photos', 'public');
+    //         $article->image = $path;
+    //     }
+    //     $article->nom_articles=$request->nom_articles;
+    //     $article->prix= $request->prix;
+    //     $article->stock_restant=$request->stock_restant;
+    //     // $article->image=$imageArticle;
+    //     $article->update();
+    //     return redirect()->route('the.shop');
+
+    // }
+
+    public function quantity(Request $request ,$id){
+        $produits=Articles::findOrFail($id);
+
+        if($request->action=='incrementation'){
+            $produits->after_buy +=1;
+
+        }elseif($request->action=='decrementation' && $produits->after_bay >0){
+            $produits->after_buy -=1;
         }
-        $article->nom_articles=$request->nom_articles;
-        $article->prix= $request->prix;
-        $article->stock_restant=$request->stock_restant;
-        // $article->image=$imageArticle;
-        $article->update();
-        return redirect()->route('the.shop');
 
+        $produits->save();
+        return redirect()->route('welcome');
     }
+
     /**
+     *
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
