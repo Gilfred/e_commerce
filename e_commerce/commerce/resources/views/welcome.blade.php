@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{asset('resources/css/app.css')}}">
         <title>Laravel</title>
 
 
@@ -15,7 +14,7 @@
          <div>
             <a href="">achat de produits</a>
         </div>
-        <table>
+        <table style="border: 1px">
             <thead>
                 <th>
                     <tr>Nom de l'article</tr>

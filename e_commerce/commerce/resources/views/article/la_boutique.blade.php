@@ -8,7 +8,7 @@
     <title>Mes articles disponibles</title>
 </head>
 <body>
-    <table style="border: 1px">
+    <table style="border: 1px;">
         <thead>
             <tr>
                 <th>nom de l'article</th>
