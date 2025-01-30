@@ -111,7 +111,7 @@ class ArticltraiteController extends Controller
         if($request->action=='incrementation'){
             $produits->after_buy +=1;
 
-        }elseif($request->action=='decrementation' && $produits->after_bay >0){
+        }elseif($request->action=='decrementation' && $produits->after_buy >0){
             $produits->after_buy -=1;
         }
 
