@@ -6,6 +6,7 @@
 namespace App\Services;
 
 use FedaPay\FedaPay;
+use FedaPay\Transaction;
 
 class FedapayService
 {
@@ -20,17 +21,17 @@ class FedapayService
     {
         try {
             // Crée un paiement avec les données fournies
-            $payout = \FedaPay\Payout::create([
+            $payout = Transaction::create([
                 'amount' => $data['amount'],
                 'currency' => ['iso' => 'XOF'],
-                'mode' => 'mtn_open', // Peut être ajusté en fonction des besoins
-                'customer' => [
+                //'payment_method' => ['name' => 'mtn_open'],                'customer' => [
+                "customer" => [ // Non obligatoire.
                     'firstname' => $data['firstname'],
                     'lastname' => $data['lastname'],
                     'email' => $data['email'],
                     'phone_number' => [
                         'number' => $data['number'],
-                        'country' => $data['country'],
+                        'country' => $data['country']
                     ],
                 ],
             ]);

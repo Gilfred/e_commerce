@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be1c70c5f555e5f4f4a3ffb60a91629a",
+    "content-hash": "1e7e6d6d6f3a7c895d1fbb15ad466c16",
     "packages": [
         {
             "name": "brick/math",
@@ -852,16 +852,16 @@
         },
         {
             "name": "fedapay/fedapay-php",
-            "version": "0.4.3",
+            "version": "0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fedapay/fedapay-php.git",
-                "reference": "edee3933539ea9b1bd05331dae5feb0615667671"
+                "reference": "0d9ff1c96a0f717460513f50e4ae7d9800221a92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fedapay/fedapay-php/zipball/edee3933539ea9b1bd05331dae5feb0615667671",
-                "reference": "edee3933539ea9b1bd05331dae5feb0615667671",
+                "url": "https://api.github.com/repos/fedapay/fedapay-php/zipball/0d9ff1c96a0f717460513f50e4ae7d9800221a92",
+                "reference": "0d9ff1c96a0f717460513f50e4ae7d9800221a92",
                 "shasum": ""
             },
             "require": {
@@ -899,9 +899,9 @@
             ],
             "support": {
                 "issues": "https://github.com/fedapay/fedapay-php/issues",
-                "source": "https://github.com/fedapay/fedapay-php/tree/0.4.3"
+                "source": "https://github.com/fedapay/fedapay-php/tree/0.4.5"
             },
-            "time": "2024-12-18T19:43:09+00:00"
+            "time": "2025-01-28T19:40:47+00:00"
         },
         {
             "name": "fruitcake/php-cors",

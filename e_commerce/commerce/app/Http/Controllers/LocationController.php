@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 //
-use App\Services\FedapayService;
+// use App\Services\FedapayService;
 use Illuminate\Http\Request;
 // use FedaPay\FedaPay;
 // use FedaPay\Transaction;
@@ -52,12 +52,13 @@ class LocationController extends Controller
         // 'country'=>['required','sting','max:2'],
         // 'currency'=>['required','']
     ]);
-    \FedaPay\Fedapay::setApiKey('sk_sandbox_8PimPxHTy3LbovRwWGOr5uzG');
+    \FedaPay\Fedapay::setApiKey('sk_sandbox_UsN1t7yNIO5lb82QYD69fXPp');
     \FedaPay\FedaPay::setEnvironment('sandbox');
+
     \FedaPay\Payout::create([
       "amount" => 2000,
       "currency" => ["iso" => "XOF"],
-      "mode" => "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+      //'payment_method' => ['name' => 'mtn_open'],
       "customer" => [ // Non obligatoire.
           "firstname" => $request->firstname, //"John",
           "lastname" => $request->lastname, //"Doe",

@@ -49,7 +49,7 @@
             <label for="country">
                 Pays:
             </label>
-            <input type="text" value="BJ" name="country">
+            <input type="text" value="bj" name="country">
         </div> <br>
         {{-- <div>
             <label for="description">
