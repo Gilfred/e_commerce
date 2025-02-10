@@ -57,7 +57,7 @@ class LocationController extends Controller
 
     \FedaPay\Payout::create([
       "amount" => 2000,
-      "currency" => ["iso" => "XOF"],
+      "currency" =>  "XOF",
       //'payment_method' => ['name' => 'mtn_open'],
       "customer" => [ // Non obligatoire.
           "firstname" => $request->firstname, //"John",
