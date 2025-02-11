@@ -55,7 +55,7 @@ class LocationController extends Controller
     \FedaPay\Fedapay::setApiKey('sk_sandbox_UsN1t7yNIO5lb82QYD69fXPp');
     \FedaPay\FedaPay::setEnvironment('sandbox');
 
-    \FedaPay\Payout::create([
+    $response = \FedaPay\Payout::create([
       "amount" => 2000,
       "currency" =>  "XOF",
       //'payment_method' => ['name' => 'mtn_open'],
@@ -69,7 +69,7 @@ class LocationController extends Controller
           ],
       ],
     ]);
-
+        dd($response);
        return redirect()->route('articles');
 
    }
