@@ -18,4 +18,9 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('/test',[FrontController::class,'accueil']);
+
+//recuperation des utilisateurs
+Route::get('/utilisateurs',[FrontController::class,'index']);
+
+//creation de nouvel utilisateurs
+Route::post('/utilisateurs',[FrontController::class,'store']);
